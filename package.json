@@ -1,0 +1,21 @@
+{
+  "name": "easy-vuex-module",
+  "version": "0.0.1",
+  "description": "Vuex helper that makes working with modules easier and more organized.",
+  "main": "bundle.js",
+  "author": "plakak",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "dependencies": {
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  }
+}
