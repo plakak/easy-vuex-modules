@@ -5,7 +5,7 @@ import {
   mapState as mapVueState
 } from 'vuex';
 
-import { aggregateEnties, aggregateEntiesForState } from './helpers'; 
+import { aggregateEnties, aggregateEntiesForState, wrapVuexFn } from './helpers'; 
 
 // Adds namespace to each module
 export const namespace = modules =>
