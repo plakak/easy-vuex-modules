@@ -133,6 +133,11 @@ var aggregateEntiesForState = function aggregateEntiesForState(arr) {
     return acc;
   }, {});
 };
+var wrapVuexFn = function wrapVuexFn(fn, mapper) {
+  return function (array) {
+    return fn(mapper(array));
+  };
+};
 
 var namespace = function namespace(modules) {
   return Object.entries(modules).reduce(function (acc, _ref) {
