@@ -9,6 +9,10 @@
   "scripts": {
     "build": "rollup -c"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/plakak/easy-vuex-modules.git"
+  },
   "dependencies": {
     "vuex": "^3.1.1"
   },
