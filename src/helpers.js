@@ -10,7 +10,14 @@ const getProp = (object, path, defaultVal) => {
 
 export const aggregateEnties = arr =>
   arr.reduce((acc, next) => {
-    acc[next.slice(next.lastIndexOf('/') + 1)] = next;
+    if (typeof(next) === 'string') {
+      acc[next.slice(next.lastIndexOf('/') + 1)] = next;
+    } else if (next.name && next.state) {
+      acc[next.name] = next.state;
+    } else {
+      throw new Error('Wrong data provided to easy-vuex-modules');
+    }
+
     return acc;
   }, {});
 
@@ -24,11 +31,11 @@ export const aggregateEntiesForState = arr =>
     } else if (next.name && next.state) {
       name = next.name;
     } else {
-      throw new Error('Wrong state provided to Vmodulex');    
+      throw new Error('Wrong data provided to easy-vuex-modules');
     }
 
     acc[name] = state => getProp(state, next.state ? next.state : next);
-    
+
     return acc;
   }, {});
 
