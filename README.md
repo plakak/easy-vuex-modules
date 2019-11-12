@@ -10,8 +10,11 @@ or
 yarn add easy-vuex-modules
 ```
 
+## Example implementation:
+https://github.com/plakak/easy-vuex-modules/tree/feat/example-readme/example 
+
 ## What problem does it solve?
-In a Vuex, when using namespaced modules the map mutation/action/getters are becoming string based arrays:
+When using namespaced modules in Vuex, mappings of mutations/actions/getters are string based arrays:
  ```
 ...mapActions([
     'some/nested/module/foo', // -> this['some/nested/module/foo']()
@@ -19,7 +22,7 @@ In a Vuex, when using namespaced modules the map mutation/action/getters are bec
 ])
 ```
 
-and maping states requires using functions:
+and mapping of state requires using functions:
 ```
  ...mapState({
     a: state => state.some.nested.module.a,
@@ -37,9 +40,8 @@ straightfowrad.
 
 
 ### mapState
-Handling of the `mapState` via native vuex function is very dencent. One doesn't rely on strings so that's always
-an added benefit. But if someone would like to follow string pattern that `mapState` allows when no namespaces are used -
-`easy-vuex-modules` allows just that.
+But if you'd like to follow string pattern that mapState allows when no namespaces are used - easy-vuex-modules allows just that.
+Handling of the `mapState` via native vVex function is very dencent. You don't rely on strings and that's the benefit. But if you'd like to follow string pattern that `mapState` allows when no namespaces are used - `easy-vuex-modules` allows just that.
 #### Before: 
 ```
     ...mapState({
@@ -50,8 +52,7 @@ an added benefit. But if someone would like to follow string pattern that `mapSt
 ```
 
 #### After:
-The `state` with `easy-vuex-modules` resolves pretty straighforward - you can provide a string like one would if
- there was no namespaces at all.
+The `state` with `easy-vuex-modules` resolves pretty straighforward - yyou can provide a string like you would if there was no namespaces at all.
  ```
 import { mapState } from `easy-vuex-modules`;
 
@@ -62,8 +63,8 @@ import { mapState } from `easy-vuex-modules`;
 ```
 
 ### mapGetters, mapMutations, mapActions
-The real power of `easy-vuex-modules` shows here. While defining a state user also defines a namespaceMap that later allows 
-to resolve getters/mutations/actions without use of error-prone strings.
+The real power of `easy-vuex-modules` shows here. While defining a state user also defines a `namespaceMap` that later allows 
+to resolve getters/mutations/actions without use of error-prone strings. `namespaceMap` is a simple object with names that are used throught the store. You'll see how to build it in next section.
 
 #### Before:
  ```
@@ -88,8 +89,10 @@ to resolve getters/mutations/actions without use of error-prone strings.
     },
     methods: {
       ...mapMutations([
-        module1.mutations.updateFoo,
-        module2.mutations.changeBar
+        module1.mutations.updateFoo
+      ]),
+      ...mapActions([
+        module2.actions.changeBar
       ])
     }
   };
@@ -112,7 +115,7 @@ export const myModuleNamespace = {
 };
 ```
 
-- When creating a module use defined namespace values as keys
+- When creating a module, use defined namespace values as keys
 ```javascript
 export const myModule = {
   state: {
@@ -135,7 +138,7 @@ export const myModule = {
   }
 };
 ```
-- During store creation make sure you use namespace for each module, or just ouse `namespace` helper provided by the library
+- During store creation make sure you use namespace for each module, or just use `namespace` helper provided by the library
 ```javascript
 import { namespace } from 'easy-vuex-modules';
 import { myModule } from './myModule';
