@@ -11,7 +11,7 @@ yarn add easy-vuex-modules
 ```
 
 ## Example implementation:
-https://github.com/plakak/easy-vuex-modules/tree/feat/example-readme/example 
+https://github.com/plakak/easy-vuex-modules/tree/master/example
 
 ## What problem does it solve?
 When using namespaced modules in Vuex, mappings of mutations/actions/getters are string based arrays:
