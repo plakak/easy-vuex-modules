@@ -1,6 +1,6 @@
 {
   "name": "easy-vuex-modules",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Vuex helper that makes working with modules easier and more organized.",
   "main": "bundle.js",
   "author": "plakak",
