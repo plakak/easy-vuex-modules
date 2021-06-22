@@ -1,6 +1,6 @@
 {
   "name": "easy-vuex-modules",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Vuex helper that makes working with modules easier and more organized.",
   "main": "bundle.js",
   "author": "plakak",
@@ -37,7 +37,7 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
-   "resolutions": {
+  "resolutions": {
     "glob-parent": "5.1.2",
     "trim-newlines": "3.0.1"
   }
